@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy — Fae | Saorsa Labs</title>
+  <meta name="description" content="Fae runs entirely on your machine. No cloud, no telemetry, no data collection. Learn exactly how Fae protects your privacy.">
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <div class="nav__logo-orb" aria-hidden="true"></div>
+        <span>Fae</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="features.html">Features</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="developers.html">Developers</a></li>
+        <li><a href="../index.html#waitlist" class="nav__cta">Get Early Access</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="page-header__bg"></div>
+    <div class="container">
+      <div class="badge badge--green animate-in">
+        <span class="badge__dot"></span>
+        Privacy First
+      </div>
+      <h1 class="animate-in animate-in--delay-1">
+        Your data <span class="text-gradient">stays yours</span>
+      </h1>
+      <p class="lead animate-in animate-in--delay-2">
+        Fae was designed from day one with a simple principle: your data never leaves your machine. Here's exactly how we make that real.
+      </p>
+    </div>
+  </header>
+
+  <!-- Core Promise -->
+  <section class="section--sm">
+    <div class="container container--narrow">
+      <div style="text-align:center; margin-bottom: var(--space-3xl);">
+        <h2 data-animate>The architecture of privacy</h2>
+        <p class="lead" data-animate data-animate-delay="100" style="margin: var(--space-md) auto 0;">
+          Privacy isn't a feature we bolt on. It's a consequence of how Fae is built.
+        </p>
+      </div>
+
+      <!-- Architecture Diagram -->
+      <div class="privacy-arch" data-animate data-animate-delay="200">
+        <div class="privacy-arch__title">Data Flow Architecture</div>
+        <div class="privacy-arch__layers">
+          <div class="privacy-arch__layer privacy-arch__layer--app">
+            Fae Application — LLM, Memory, Voice, Tools
+          </div>
+          <div class="privacy-arch__arrow">&darr; sandboxed within &darr;</div>
+          <div class="privacy-arch__layer privacy-arch__layer--sandbox">
+            App Sandbox — Scoped File Access, TCC Permissions
+          </div>
+          <div class="privacy-arch__arrow">&darr; runs on &darr;</div>
+          <div class="privacy-arch__layer privacy-arch__layer--os">
+            Operating System — macOS / Linux / Windows
+          </div>
+          <div class="privacy-arch__arrow">&darr; your &darr;</div>
+          <div class="privacy-arch__layer privacy-arch__layer--hardware">
+            Your Hardware — Nothing Leaves This Layer
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- Privacy Pillars -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="grid grid-3" style="margin-bottom: var(--space-3xl);">
+
+        <div class="card" data-animate data-animate-delay="0">
+          <div class="card__icon" style="background: var(--green-dim); color: var(--green);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="card__title">Local-Only AI</h3>
+          <p class="card__text">
+            All AI inference — speech recognition, language understanding, text-to-speech, and vision — runs entirely on your hardware using local models. Qwen3-VL via Metal (Mac) or CUDA (Linux). No API calls. No cloud. No exceptions.
+          </p>
+        </div>
+
+        <div class="card" data-animate data-animate-delay="100">
+          <div class="card__icon" style="background: var(--green-dim); color: var(--green);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="card__title">Zero Telemetry</h3>
+          <p class="card__text">
+            Fae sends nothing to any server. No usage analytics, no crash reports, no "anonymous" metrics. The only network requests Fae makes are self-update checks, which you can disable entirely.
+          </p>
+        </div>
+
+        <div class="card" data-animate data-animate-delay="200">
+          <div class="card__icon" style="background: var(--green-dim); color: var(--green);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3 class="card__title">Transparent Storage</h3>
+          <p class="card__text">
+            Memories are stored as human-readable files in <code style="color:var(--warm-gold); font-size:0.85em;">~/.fae/memory/</code>. Configuration lives in plain TOML. You can inspect, edit, export, or delete anything at any time. No opaque databases hiding your data.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- Detailed Privacy Guarantees -->
+  <section class="section--sm">
+    <div class="container container--narrow">
+      <h2 data-animate style="text-align:center; margin-bottom: var(--space-3xl);">
+        Detailed guarantees
+      </h2>
+
+      <!-- Guarantee 1 -->
+      <div class="feature-detail" style="grid-template-columns: 1fr; padding: var(--space-xl) 0; border-bottom: 1px solid var(--card-border);" data-animate>
+        <div>
+          <h3 style="display:flex; align-items:center; gap: var(--space-sm);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+            Voice never leaves your device
+          </h3>
+          <p style="margin-top: var(--space-md);">
+            Audio from your microphone is processed in real-time by the local voice pipeline. Speech is converted to text on-device, then discarded. No audio is stored, recorded, or transmitted. Fae uses echo cancellation to separate your voice from her own, so she only processes what she needs to.
+          </p>
+        </div>
+      </div>
+
+      <!-- Guarantee 2 -->
+      <div class="feature-detail" style="grid-template-columns: 1fr; padding: var(--space-xl) 0; border-bottom: 1px solid var(--card-border);" data-animate>
+        <div>
+          <h3 style="display:flex; align-items:center; gap: var(--space-sm);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/></svg>
+            Camera stays on your hardware
+          </h3>
+          <p style="margin-top: var(--space-md);">
+            When you grant camera access, Fae processes images locally through the Qwen3-VL vision model. Images are analysed in-memory and never saved to disk unless you explicitly ask. Visual analysis is entirely local and private — images never leave the device.
+          </p>
+        </div>
+      </div>
+
+      <!-- Guarantee 3 -->
+      <div class="feature-detail" style="grid-template-columns: 1fr; padding: var(--space-xl) 0; border-bottom: 1px solid var(--card-border);" data-animate>
+        <div>
+          <h3 style="display:flex; align-items:center; gap: var(--space-sm);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Secrets handled by local brain only
+          </h3>
+          <p style="margin-top: var(--space-md);">
+            API keys, passwords, tokens, wallet material, and other sensitive credentials are never sent to any external service. Fae's security policy mandates that all sensitive operations use only the local AI model and local tools. Secrets are stored in the system keychain, not in memory files or configuration.
+          </p>
+        </div>
+      </div>
+
+      <!-- Guarantee 4 -->
+      <div class="feature-detail" style="grid-template-columns: 1fr; padding: var(--space-xl) 0; border-bottom: 1px solid var(--card-border);" data-animate>
+        <div>
+          <h3 style="display:flex; align-items:center; gap: var(--space-sm);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            Full data deletion on demand
+          </h3>
+          <p style="margin-top: var(--space-md);">
+            A single "delete all data" command removes everything — data directory, cache, configuration, and keychain credentials. No hidden remnants. No cloud backups to chase down. Your data is on your machine and nowhere else, so deleting it means it's truly gone.
+          </p>
+        </div>
+      </div>
+
+      <!-- Guarantee 5 -->
+      <div class="feature-detail" style="grid-template-columns: 1fr; padding: var(--space-xl) 0;" data-animate>
+        <div>
+          <h3 style="display:flex; align-items:center; gap: var(--space-sm);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.78 7.78 5.5 5.5 0 0 1 7.78-7.78zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+            Sandboxed tool execution
+          </h3>
+          <p style="margin-top: var(--space-md);">
+            All desktop automation tools operate within workspace boundaries with path traversal blocking. High-risk operations require explicit approval unless you choose to disable it. Fae runs in the macOS App Sandbox with only the specific entitlements she needs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Source Banner -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner" data-animate>
+        <h2>Don't take our word for it</h2>
+        <p class="lead">
+          Fae is open source under AGPL-3.0. Read every line of code, audit the privacy claims, and verify for yourself. That's the point.
+        </p>
+        <a href="https://github.com/saorsa-labs/fae" target="_blank" rel="noopener" class="btn btn--primary btn--large">
+          View on GitHub
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a href="privacy-policy.html" class="btn btn--secondary btn--large" style="margin-left: var(--space-md);">
+          Privacy Policy
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-name">
+            <div class="nav__logo-orb" style="width:24px;height:24px;" aria-hidden="true"></div>
+            Saorsa Labs
+          </div>
+          <p class="footer__brand-text">Building Fae — a personal AI companion who listens, remembers, and helps. Private by design, open source by principle.</p>
+          <p class="footer__brand-text" style="margin-top: var(--space-sm); font-size: 0.8rem; opacity: 0.7;">
+            Sponsored by the <a href="https://autonomi.com" target="_blank" rel="noopener" style="color: var(--warm-gold);">Autonomi Foundation</a>
+          </p>
+        </div>
+        <div>
+          <h5 class="footer__heading">Product</h5>
+          <ul class="footer__links">
+            <li><a href="features.html">Features</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li><a href="../index.html#waitlist">Early Access</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer__heading">Developers</h5>
+          <ul class="footer__links">
+            <li><a href="developers.html">Documentation</a></li>
+            <li><a href="https://github.com/saorsa-labs/fae" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="developers.html#contributing">Contributing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer__heading">Company</h5>
+          <ul class="footer__links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="mailto:hello@saorsalabs.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Saorsa Labs. All rights reserved.</span>
+        <div class="footer__bottom-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

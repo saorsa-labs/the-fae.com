@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fae — Your Personal AI Companion | Saorsa Labs</title>
+  <meta name="description" content="Fae is a personal AI companion who listens, remembers, and helps — running entirely on your computer. Private by design, always present, never intrusive.">
+  <meta name="theme-color" content="#0a0b0d">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fae — Your Personal AI Companion">
+  <meta property="og:description" content="A knowledgeable friend who is always in the room. Runs locally, keeps your data private.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saorsalabs.com">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+  <!-- ═══════ Navigation ═══════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-orb" aria-hidden="true"></div>
+        <span>Fae</span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="pages/features.html">Features</a></li>
+        <li><a href="pages/privacy.html">Privacy</a></li>
+        <li><a href="pages/about.html">About</a></li>
+        <li><a href="pages/developers.html">Developers</a></li>
+        <li><a href="#waitlist" class="nav__cta">Get Early Access</a></li>
+      </ul>
+
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════ Hero ═══════ -->
+  <header class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+
+    <div class="hero__content container">
+      <div class="hero__text">
+        <div class="badge animate-in">
+          <span class="badge__dot"></span>
+          v0.7.0 — Now Available
+        </div>
+
+        <h1 class="animate-in animate-in--delay-1">
+          A companion who<br>
+          <span class="text-gradient">listens, remembers,</span><br>
+          and helps
+        </h1>
+
+        <p class="lead animate-in animate-in--delay-2">
+          Fae is a personal AI who runs entirely on your computer.
+          She learns about you over time — your name, your preferences, your world — and keeps everything private and secure. Like having a knowledgeable friend who is always in the room.
+        </p>
+
+        <div class="hero__actions animate-in animate-in--delay-3">
+          <a href="pages/getting-started.html" class="btn btn--primary btn--large">
+            Download Fae
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+          <a href="pages/features.html" class="btn btn--secondary btn--large">
+            See How It Works
+          </a>
+        </div>
+
+        <div class="hero__proof animate-in animate-in--delay-4">
+          <div class="hero__proof-item">
+            <span class="hero__proof-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            100% Local &amp; Private
+          </div>
+          <div class="hero__proof-item">
+            <span class="hero__proof-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            Open Source (AGPL-3.0)
+          </div>
+          <div class="hero__proof-item">
+            <span class="hero__proof-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </span>
+            macOS, Linux &amp; Windows
+          </div>
+        </div>
+
+        <p style="margin-top: var(--space-lg); font-size: 0.9rem; color: var(--text-muted);">
+          Created by <strong style="color: var(--text-secondary);">Saorsa Labs</strong>, sponsored by the <a href="https://autonomi.com" target="_blank" rel="noopener" style="color: var(--warm-gold);">Autonomi Foundation</a>
+        </p>
+      </div>
+
+      <div class="hero__orb-wrap animate-in animate-in--delay-2">
+        <canvas id="hero-orb" aria-label="Fae orb animation"></canvas>
+      </div>
+    </div>
+
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </header>
+
+  <!-- ═══════ The Vision ═══════ -->
+  <section class="section" id="vision">
+    <div class="container container--narrow" style="text-align:center;">
+      <h4 data-animate>The Vision</h4>
+      <h2 data-animate data-animate-delay="100" style="margin: var(--space-md) auto var(--space-lg);">
+        Imagine a computer your<br>grandmother could use
+      </h2>
+      <p class="lead" data-animate data-animate-delay="200" style="margin:0 auto;">
+        In Scottish folklore, the S&igrave;dhe were guardians — watching over people, guiding them home, asking only for respect in return. Fae carries that spirit into the digital world. She handles the complexity — setting up software, managing files, scheduling reminders, researching topics, and keeping track of the people and events that matter to you. You just talk to her.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- ═══════ Feature Highlights ═══════ -->
+  <section class="section" id="features">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--space-3xl);">
+        <h4 data-animate>What Fae Does</h4>
+        <h2 data-animate data-animate-delay="100" style="margin: var(--space-md) auto;">
+          Always present,<br>never intrusive
+        </h2>
+      </div>
+
+      <div class="grid grid-3 feature-grid">
+        <!-- Feature 1 -->
+        <div class="card" data-animate data-animate-delay="0">
+          <div class="card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </div>
+          <h3 class="card__title">Always Listening</h3>
+          <p class="card__text">
+            Fae listens continuously and decides when to speak. She responds to direct conversation, can helpfully interject when she overhears something useful, and stays quiet when it's not her place.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="card" data-animate data-animate-delay="100">
+          <div class="card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 class="card__title">Remembers Everything</h3>
+          <p class="card__text">
+            A durable memory system learns your name, preferences, work context, relationships, and routines. All stored locally on your machine. Fae recalls what matters before every response.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="card" data-animate data-animate-delay="200">
+          <div class="card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="card__title">Proactive Intelligence</h3>
+          <p class="card__text">
+            Fae extracts dates, people, and commitments from your conversations. She creates reminders, researches topics overnight, and delivers warm morning briefings — all without being asked.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="card" data-animate data-animate-delay="0">
+          <div class="card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="card__title">Desktop Automation</h3>
+          <p class="card__text">
+            Open apps, manage files, execute commands, and configure software — all through natural conversation. A safety-first approval model keeps you in control of what Fae can do.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="card" data-animate data-animate-delay="100">
+          <div class="card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 class="card__title">Vision Understanding</h3>
+          <p class="card__text">
+            With camera permission, Fae can see and understand the world around you. Read text from images, identify objects, and process visual information — all locally and privately.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="card" data-animate data-animate-delay="200">
+          <div class="card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="card__title">Private by Design</h3>
+          <p class="card__text">
+            Every word, every memory, every piece of data stays on your machine. No cloud. No telemetry. No data collection. Fae runs entirely on local AI models with no network required.
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top: var(--space-3xl);">
+        <a href="pages/features.html" class="btn btn--ghost" data-animate>
+          Explore all features
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Architecture Strip ═══════ -->
+  <section class="section arch-section">
+    <div class="arch-bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="arch-grid">
+        <div class="arch-text" data-animate>
+          <h4>Under the Hood</h4>
+          <h2 style="margin: var(--space-md) 0 var(--space-lg);">
+            Rust core, native shell,<br>
+            <span class="text-accent">zero compromise</span>
+          </h2>
+          <p class="lead">
+            Fae is built as a Rust core library with platform-specific native shells. On macOS, she ships as a native app with SwiftUI. On Linux and Windows, a headless bridge exposes the same core via JSON protocol — connect any frontend you like.
+          </p>
+
+          <div class="arch-pipeline" data-animate data-animate-delay="200">
+            <div class="arch-pipeline__label">Voice Pipeline</div>
+            <div class="arch-pipeline__flow">
+              <span class="arch-pipeline__node">Mic</span>
+              <span class="arch-pipeline__arrow">&rarr;</span>
+              <span class="arch-pipeline__node">AEC</span>
+              <span class="arch-pipeline__arrow">&rarr;</span>
+              <span class="arch-pipeline__node">VAD</span>
+              <span class="arch-pipeline__arrow">&rarr;</span>
+              <span class="arch-pipeline__node">STT</span>
+              <span class="arch-pipeline__arrow">&rarr;</span>
+              <span class="arch-pipeline__node arch-pipeline__node--accent">LLM</span>
+              <span class="arch-pipeline__arrow">&rarr;</span>
+              <span class="arch-pipeline__node">TTS</span>
+              <span class="arch-pipeline__arrow">&rarr;</span>
+              <span class="arch-pipeline__node">Speaker</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arch-stats" data-animate data-animate-delay="100">
+          <div class="arch-stat">
+            <div class="arch-stat__value text-gradient">100%</div>
+            <div class="arch-stat__label">On-Device Processing</div>
+          </div>
+          <div class="arch-stat">
+            <div class="arch-stat__value text-gradient">0</div>
+            <div class="arch-stat__label">Cloud Dependencies</div>
+          </div>
+          <div class="arch-stat">
+            <div class="arch-stat__value text-gradient">3</div>
+            <div class="arch-stat__label">Platforms Supported</div>
+          </div>
+          <div class="arch-stat">
+            <div class="arch-stat__value text-gradient">AGPL</div>
+            <div class="arch-stat__label">Open Source License</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Privacy Promise ═══════ -->
+  <section class="section" id="privacy-strip">
+    <div class="container container--narrow" style="text-align:center;">
+      <h4 data-animate>Privacy Promise</h4>
+      <h2 data-animate data-animate-delay="100" style="margin: var(--space-md) auto var(--space-lg);">
+        Your data never<br>leaves your machine
+      </h2>
+      <p class="lead" data-animate data-animate-delay="200" style="margin:0 auto var(--space-2xl);">
+        Every conversation, every memory, every piece of intelligence stays on your hardware. Fae doesn't phone home. There's no telemetry, no analytics, no data collection of any kind. Your secrets stay yours.
+      </p>
+
+      <div class="privacy-grid grid grid-3" data-animate data-animate-delay="300">
+        <div class="privacy-item">
+          <div class="privacy-item__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="privacy-item__title">Local AI Models</h3>
+          <p class="privacy-item__text">Qwen3-VL runs on-device via Metal (Mac) or CUDA (Linux). No API keys, no cloud inference.</p>
+        </div>
+
+        <div class="privacy-item">
+          <div class="privacy-item__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <h3 class="privacy-item__title">Zero Telemetry</h3>
+          <p class="privacy-item__text">No usage tracking, no crash reports sent anywhere, no analytics. Fae respects your attention.</p>
+        </div>
+
+        <div class="privacy-item">
+          <div class="privacy-item__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3 class="privacy-item__title">Auditable Memory</h3>
+          <p class="privacy-item__text">All memories are stored as inspectable files on your machine. Ask Fae to forget anything, anytime.</p>
+        </div>
+      </div>
+
+      <a href="pages/privacy.html" class="btn btn--secondary" data-animate data-animate-delay="400" style="margin-top:var(--space-xl);">
+        Read Our Privacy Deep-Dive
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════ Personality / Soul ═══════ -->
+  <section class="section soul-section">
+    <div class="container">
+      <div class="soul-grid">
+        <div class="soul-quote" data-animate>
+          <blockquote>
+            <p>&ldquo;Fae is calm, practical, and warm. She is an always-present companion, not a summoned servant. Silence is a form of respect and attentiveness.&rdquo;</p>
+            <cite>— from SOUL.md, Fae's behavioural contract</cite>
+          </blockquote>
+        </div>
+        <div class="soul-text" data-animate data-animate-delay="150">
+          <h4>Personality</h4>
+          <h3 style="margin: var(--space-md) 0 var(--space-lg);">
+            A friend, not a servant
+          </h3>
+          <p>
+            Most AI assistants appear when summoned and vanish when dismissed. Fae is different. She is always present — like a friend in the room. She decides when to speak and when to stay quiet. She'll interject warmly if she hears something she can help with, and she'll hold her tongue when it's not her place.
+          </p>
+          <p style="margin-top: var(--space-md);">
+            Her personality is defined by an open, editable SOUL document that you can customise to match your preferences. She's direct, practical, and honest — she'll never just agree to keep the peace.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Waitlist ═══════ -->
+  <section class="section waitlist-section" id="waitlist">
+    <div class="container container--narrow" style="text-align:center;">
+      <h2 data-animate style="margin-bottom: var(--space-md);">
+        Be among the first<br>to meet Fae
+      </h2>
+      <p class="lead" data-animate data-animate-delay="100" style="margin: 0 auto var(--space-2xl);">
+        Fae is in active early development. Sign up for early access and we'll let you know when she's ready to come home.
+      </p>
+
+      <form class="waitlist-form" data-animate data-animate-delay="200">
+        <div class="waitlist-form__inner">
+          <input
+            type="email"
+            placeholder="you@example.com"
+            aria-label="Email address"
+            required
+          >
+          <button type="submit" class="btn btn--primary">
+            Join the Waitlist
+          </button>
+        </div>
+        <p class="waitlist-form__note">No spam, ever. We'll only email you about Fae.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══════ Footer ═══════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-name">
+            <div class="nav__logo-orb" style="width:24px;height:24px;" aria-hidden="true"></div>
+            Saorsa Labs
+          </div>
+          <p class="footer__brand-text">
+            Building Fae — a personal AI companion who listens, remembers, and helps. Private by design, open source by principle.
+          </p>
+          <p class="footer__brand-text" style="margin-top: var(--space-sm); font-size: 0.8rem; opacity: 0.7;">
+            Sponsored by the <a href="https://autonomi.com" target="_blank" rel="noopener" style="color: var(--warm-gold);">Autonomi Foundation</a>
+          </p>
+        </div>
+
+        <div>
+          <h5 class="footer__heading">Product</h5>
+          <ul class="footer__links">
+            <li><a href="pages/features.html">Features</a></li>
+            <li><a href="pages/privacy.html">Privacy</a></li>
+            <li><a href="pages/getting-started.html">Getting Started</a></li>
+            <li><a href="#waitlist">Early Access</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer__heading">Developers</h5>
+          <ul class="footer__links">
+            <li><a href="pages/developers.html">Documentation</a></li>
+            <li><a href="https://github.com/saorsa-labs/fae" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="pages/developers.html#contributing">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer__heading">Company</h5>
+          <ul class="footer__links">
+            <li><a href="pages/about.html">About</a></li>
+            <li><a href="mailto:hello@saorsalabs.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 Saorsa Labs. All rights reserved.</span>
+        <div class="footer__bottom-links">
+          <a href="pages/privacy-policy.html">Privacy Policy</a>
+          <a href="pages/terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/orb.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize hero orb
+    const canvas = document.getElementById('hero-orb');
+    if (canvas) {
+      new FaeOrb(canvas);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features — Fae | Saorsa Labs</title>
+  <meta name="description" content="Discover how Fae listens, remembers, thinks ahead, and helps you manage your digital life — all running locally on your machine.">
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <div class="nav__logo-orb" aria-hidden="true"></div>
+        <span>Fae</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="features.html">Features</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="developers.html">Developers</a></li>
+        <li><a href="../index.html#waitlist" class="nav__cta">Get Early Access</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="page-header__bg"></div>
+    <div class="container">
+      <div class="badge animate-in">
+        <span class="badge__dot"></span>
+        In Development
+      </div>
+      <h1 class="animate-in animate-in--delay-1">
+        Everything Fae <span class="text-gradient">can do</span>
+      </h1>
+      <p class="lead animate-in animate-in--delay-2">
+        From always-on listening to proactive intelligence, Fae brings together voice, memory, automation, and vision in a single companion that lives on your machine.
+      </p>
+    </div>
+  </header>
+
+  <!-- Feature 1: Always Listening -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="feature-detail" data-animate>
+        <div class="feature-detail__visual">
+          <svg class="feature-detail__visual-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
+        <div class="feature-detail__content">
+          <h4>Voice</h4>
+          <h3>Always listening, never intrusive</h3>
+          <p>
+            Fae is an always-present companion, not a summoned assistant. She listens continuously and makes intelligent decisions about when to speak — responding naturally to direct conversation, politely interjecting when she overhears something useful, and staying quiet when the TV is on or conversations don't involve her.
+          </p>
+          <p>
+            The voice pipeline runs entirely on-device: echo cancellation separates your speech from Fae's own voice and ambient noise, voice activity detection filters silence, and speech recognition converts your words to text with no cloud dependency.
+          </p>
+          <ul class="feature-checks">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Echo cancellation for clear speech separation
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Voice activity detection filters background noise
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Parakeet ONNX for local speech-to-text
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Kokoro-82M for natural text-to-speech
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- Feature 2: Memory -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="feature-detail" data-animate>
+        <div class="feature-detail__visual">
+          <svg class="feature-detail__visual-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="feature-detail__content">
+          <h4>Memory</h4>
+          <h3>Remembers everything that matters</h3>
+          <p>
+            Fae has a durable memory system that learns about you over time — your name, preferences, work context, relationships, and routines. All stored locally on your machine in inspectable files you can review at any time.
+          </p>
+          <p>
+            Before every response, Fae automatically recalls relevant memories to personalise her help. After every conversation, she records useful facts, events, and context updates. When information changes, she supersedes old facts with lineage tracking — never silently overwriting.
+          </p>
+          <ul class="feature-checks">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Automatic recall before every response
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Automatic capture of useful facts and events
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Conflict resolution with lineage tracking
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Ask Fae to remember or forget anything
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- Feature 3: Proactive Intelligence -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="feature-detail" data-animate>
+        <div class="feature-detail__visual">
+          <svg class="feature-detail__visual-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="feature-detail__content">
+          <h4>Intelligence</h4>
+          <h3>Thinks ahead so you don't have to</h3>
+          <p>
+            After each conversation, Fae runs a background extraction pass — pulling out dates, birthdays, people mentioned, interests, and commitments. She uses this to create reminders, schedule research tasks, and prepare warm morning briefings, all without being asked.
+          </p>
+          <p>
+            Say "good morning" and Fae delivers a summary of upcoming events, people to reconnect with, and research she's done overnight. Relationship tracking remembers who you mention and gently surfaces connections you might want to check in on.
+          </p>
+          <ul class="feature-checks">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Conversation mining for dates, people, commitments
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Self-scheduling reminders and research tasks
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Morning briefings with warm, natural delivery
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Configurable proactivity: Off, Digest, Gentle, Active
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- Feature 4: Desktop Automation -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="feature-detail" data-animate>
+        <div class="feature-detail__visual">
+          <svg class="feature-detail__visual-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="feature-detail__content">
+          <h4>Automation</h4>
+          <h3>Manages your computer for you</h3>
+          <p>
+            Fae can open and interact with desktop applications, read and write files, configure software, and execute shell commands — all through natural conversation. A safety-first approval model keeps you in control of exactly what Fae can do.
+          </p>
+          <p>
+            Tool modes let you choose how much access Fae has, from conversation-only to full access with or without approval prompts.
+          </p>
+
+          <table class="mode-table">
+            <thead>
+              <tr><th>Mode</th><th>What Fae Can Do</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>off</td><td>Conversation only — no computer access</td></tr>
+              <tr><td>read_only</td><td>Read files and check system state</td></tr>
+              <tr><td>read_write</td><td>Read and write files</td></tr>
+              <tr><td>full</td><td>Full access including shell commands (with approval)</td></tr>
+              <tr><td>full_no_approval</td><td>Full access without approval prompts</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- Feature 5: Vision -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="feature-detail" data-animate>
+        <div class="feature-detail__visual">
+          <svg class="feature-detail__visual-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="feature-detail__content">
+          <h4>Vision</h4>
+          <h3>Sees and understands your world</h3>
+          <p>
+            With camera permission, Fae can see and understand the world around you using Qwen3-VL, a powerful vision-language model running entirely on your hardware. She can read text from images, identify objects, and process visual information — all locally and privately.
+          </p>
+          <p>
+            The vision model is selected automatically based on your system RAM: Qwen3-VL-8B for 24GB+ systems, Qwen3-VL-4B for lighter hardware. Images never leave your device.
+          </p>
+          <ul class="feature-checks">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Qwen3-VL vision model runs on-device
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Automatic model selection by system RAM
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Camera images never leave your machine
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- Feature 6: Skills & Scheduler -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="feature-detail" data-animate>
+        <div class="feature-detail__visual">
+          <svg class="feature-detail__visual-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="feature-detail__content">
+          <h4>Growth</h4>
+          <h3>Skills that grow with you</h3>
+          <p>
+            Fae's capabilities expand over time through skills — markdown guides that teach her new workflows. Built-in skills cover common tasks, and Fae can propose new skills when she detects patterns in your conversations. You always review and approve before anything is installed.
+          </p>
+          <p>
+            The built-in scheduler runs reminders, recurring check-ins, memory maintenance, and update checks in the background. Set tasks through natural conversation — "remind me every morning to review my tasks" — and manage them through voice or the GUI menu.
+          </p>
+          <ul class="feature-checks">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              User-approved skill installation
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Pattern detection for skill proposals
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Built-in scheduler with natural language triggers
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Discord, WhatsApp, and webhook channels
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- Feature 7: Fae-to-Fae -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="feature-detail" data-animate>
+        <div class="feature-detail__visual">
+          <svg class="feature-detail__visual-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="feature-detail__content">
+          <h4>Connection</h4>
+          <h3>Fae talks to other Fae</h3>
+          <p>
+            Every person can have their own Fae. And when they do, something remarkable happens — she can securely communicate with other Fae, weaving connections between people the way the ancient guid folk wove connections between the seen and unseen worlds.
+          </p>
+          <p>
+            This isn't a social network. It's a network of trust, mutual aid, and shared purpose. Your Fae can coordinate with your partner's Fae, your colleague's Fae, your family's Fae — sharing only what you approve, keeping everything else private.
+          </p>
+          <ul class="feature-checks">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Secure peer-to-peer communication between Fae instances
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              User-controlled sharing — nothing leaves without your approval
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Coordinate schedules, share context, and help each other
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner" data-animate>
+        <h2>Ready to meet Fae?</h2>
+        <p class="lead">Join the waitlist and be among the first to experience a personal AI companion who truly respects your privacy.</p>
+        <a href="../index.html#waitlist" class="btn btn--primary btn--large">Get Early Access</a>
+        <a href="privacy.html" class="btn btn--secondary btn--large">Read Privacy Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-name">
+            <div class="nav__logo-orb" style="width:24px;height:24px;" aria-hidden="true"></div>
+            Saorsa Labs
+          </div>
+          <p class="footer__brand-text">Building Fae — a personal AI companion who listens, remembers, and helps. Private by design, open source by principle.</p>
+          <p class="footer__brand-text" style="margin-top: var(--space-sm); font-size: 0.8rem; opacity: 0.7;">
+            Sponsored by the <a href="https://autonomi.com" target="_blank" rel="noopener" style="color: var(--warm-gold);">Autonomi Foundation</a>
+          </p>
+        </div>
+        <div>
+          <h5 class="footer__heading">Product</h5>
+          <ul class="footer__links">
+            <li><a href="features.html">Features</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li><a href="../index.html#waitlist">Early Access</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer__heading">Developers</h5>
+          <ul class="footer__links">
+            <li><a href="developers.html">Documentation</a></li>
+            <li><a href="https://github.com/saorsa-labs/fae" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="developers.html#contributing">Contributing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer__heading">Company</h5>
+          <ul class="footer__links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="mailto:hello@saorsalabs.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Saorsa Labs. All rights reserved.</span>
+        <div class="footer__bottom-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

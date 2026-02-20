@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started — Fae | Saorsa Labs</title>
+  <meta name="description" content="Download and set up Fae on your computer. Requirements, installation, and first steps.">
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <div class="nav__logo-orb" aria-hidden="true"></div>
+        <span>Fae</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="features.html">Features</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="developers.html">Developers</a></li>
+        <li><a href="../index.html#waitlist" class="nav__cta">Get Early Access</a></li>
+      </ul>
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="page-header__bg"></div>
+    <div class="container">
+      <div class="badge animate-in">
+        <span class="badge__dot"></span>
+        Early Access
+      </div>
+      <h1 class="animate-in animate-in--delay-1">
+        Getting <span class="text-gradient">started</span>
+      </h1>
+      <p class="lead animate-in animate-in--delay-2">
+        Fae is in early development. Here's what you'll need and how to get set up.
+      </p>
+    </div>
+  </header>
+
+  <!-- Requirements -->
+  <section class="section--sm">
+    <div class="container container--narrow">
+      <div data-animate>
+        <h4>System Requirements</h4>
+        <h2 style="margin: var(--space-md) 0 var(--space-xl);">What you'll need</h2>
+      </div>
+
+      <div class="grid grid-3" data-animate data-animate-delay="100">
+        <div class="card">
+          <div class="card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="card__title">macOS</h3>
+          <p class="card__text">
+            Apple Silicon (M1 or later) recommended. macOS 14+ for full native app experience with SwiftUI orb, conversation view, and settings.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+          </div>
+          <h3 class="card__title">Linux</h3>
+          <p class="card__text">
+            x86_64 with CUDA-capable GPU for local inference. Headless <code style="color:var(--warm-gold);">fae-host</code> binary with JSON protocol — connect any frontend.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="card__title">Windows</h3>
+          <p class="card__text">
+            x86_64 with CUDA GPU support. Same headless <code style="color:var(--warm-gold);">fae-host.exe</code> bridge via named pipes. Connect your preferred UI.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: var(--space-xl);" data-animate data-animate-delay="200">
+        <h3 class="card__title">Memory Requirements</h3>
+        <p class="card__text" style="margin-bottom: var(--space-md);">
+          Local AI model selection adapts to your available RAM:
+        </p>
+        <table class="mode-table">
+          <thead>
+            <tr><th>System RAM</th><th>Model</th><th>Capabilities</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>24 GiB+</td>
+              <td style="color: var(--text-secondary);">Qwen3-VL-8B-Instruct</td>
+              <td style="color: var(--text-secondary);">Vision + text, stronger tool calling and coding</td>
+            </tr>
+            <tr>
+              <td>&lt; 24 GiB</td>
+              <td style="color: var(--text-secondary);">Qwen3-VL-4B-Instruct</td>
+              <td style="color: var(--text-secondary);">Vision + text, lighter footprint</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- Installation Steps -->
+  <section class="section--sm">
+    <div class="container container--narrow">
+      <div data-animate>
+        <h4>Installation</h4>
+        <h2 style="margin: var(--space-md) 0 var(--space-xl);">Setup in four steps</h2>
+      </div>
+
+      <div class="steps" data-animate data-animate-delay="100">
+        <div class="step">
+          <div class="step__number"></div>
+          <div class="step__content">
+            <h3>Download Fae</h3>
+            <p>
+              Grab the latest release for your platform from the <a href="https://github.com/saorsa-labs/fae/releases" target="_blank" rel="noopener">GitHub releases page</a>. On macOS, download the <code style="color:var(--warm-gold);">.dmg</code> and drag Fae to your Applications folder. On Linux and Windows, extract the archive to your preferred location.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step__number"></div>
+          <div class="step__content">
+            <h3>Grant Permissions</h3>
+            <p>
+              On first launch, Fae will guide you through granting the permissions she needs — microphone for listening, and optionally camera, contacts, calendar, and reminders depending on how you want to use her. You can change these at any time in Settings.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step__number"></div>
+          <div class="step__content">
+            <h3>Meet Fae</h3>
+            <p>
+              Fae's onboarding is a gentle conversation. She'll introduce herself, learn your name (from your Me Card on macOS, or by asking), and get a sense of how you'd like to work together. No forms, no setup wizards — just a chat.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step__number"></div>
+          <div class="step__content">
+            <h3>Start Talking</h3>
+            <p>
+              That's it. Fae is always listening (unless you tell her to sleep). Talk to her naturally, ask for help, set reminders, or just have a conversation. She'll learn about you over time and get better at anticipating what you need.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- Download -->
+  <section class="section--sm">
+    <div class="container container--narrow" style="text-align: center;">
+      <div data-animate>
+        <h4>Download</h4>
+        <h2 style="margin: var(--space-md) auto var(--space-lg);">
+          Let Fae help you
+        </h2>
+        <p class="lead" style="margin: 0 auto var(--space-xl);">
+          Fae v0.7.0 is available now. Choose your platform to get started.
+        </p>
+        <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+          <a href="https://github.com/saorsa-labs/fae/releases/download/v0.7.0/fae-0.7.0-macos-arm64.dmg" class="btn btn--primary btn--large">
+            macOS
+          </a>
+          <a href="https://github.com/saorsa-labs/fae/releases/download/v0.7.0/fae-0.7.0-windows-x86_64.zip" class="btn btn--secondary btn--large">
+            Windows
+          </a>
+          <a href="https://github.com/saorsa-labs/fae/releases/download/v0.7.0/fae-0.7.0-linux-x86_64.tar.gz" class="btn btn--secondary btn--large">
+            Linux
+          </a>
+        </div>
+        <p style="margin-top: var(--space-lg); color: var(--text-muted); font-size: 0.85rem;">
+          v0.7.0 &middot; Early development release &middot; <a href="https://github.com/saorsa-labs/fae/releases" target="_blank" rel="noopener" style="color: var(--warm-gold);">All releases on GitHub</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-name">
+            <div class="nav__logo-orb" style="width:24px;height:24px;" aria-hidden="true"></div>
+            Saorsa Labs
+          </div>
+          <p class="footer__brand-text">Building Fae — a personal AI companion who listens, remembers, and helps. Private by design, open source by principle.</p>
+          <p class="footer__brand-text" style="margin-top: var(--space-sm); font-size: 0.8rem; opacity: 0.7;">
+            Sponsored by the <a href="https://autonomi.com" target="_blank" rel="noopener" style="color: var(--warm-gold);">Autonomi Foundation</a>
+          </p>
+        </div>
+        <div>
+          <h5 class="footer__heading">Product</h5>
+          <ul class="footer__links">
+            <li><a href="features.html">Features</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li><a href="../index.html#waitlist">Early Access</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer__heading">Developers</h5>
+          <ul class="footer__links">
+            <li><a href="developers.html">Documentation</a></li>
+            <li><a href="https://github.com/saorsa-labs/fae" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="developers.html#contributing">Contributing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer__heading">Company</h5>
+          <ul class="footer__links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="mailto:hello@saorsalabs.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Saorsa Labs. All rights reserved.</span>
+        <div class="footer__bottom-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

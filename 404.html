@@ -1,8 +1,41 @@
 ---
-layout: page
-title: "404 - Page Not Found"
+layout: null
 permalink: /404.html
 ---
-
-<p>Sorry, the page you're looking for doesn't exist.</p>
-<p><a href="/">Return home</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Fae</title>
+  <link rel="stylesheet" href="/css/design-system.css">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-xl);
+    }
+    .error-page h1 {
+      font-size: 4rem;
+      margin-bottom: var(--space-md);
+    }
+    .error-page p {
+      color: var(--text-secondary);
+      margin-bottom: var(--space-xl);
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-page">
+    <div>
+      <h1>404</h1>
+      <p>The page you're looking for doesn't exist. Perhaps Fae can help you find your way.</p>
+      <a href="/" class="btn btn--primary btn--large">Return Home</a>
+    </div>
+  </div>
+</body>
+</html>
