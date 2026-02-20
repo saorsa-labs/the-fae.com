@@ -1,0 +1,50 @@
+name: Build and Deploy to Firebase
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+# Prevent concurrent deployments
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2'
+        bundler-cache: true
+
+    - name: Build Jekyll site
+      run: bundle exec jekyll build
+      env:
+        JEKYLL_ENV: production
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: site-build
+        path: _site/
+        retention-days: 7
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Firebase CLI
+      run: npm install -g firebase-tools@13.31.1
+
+    - name: Deploy to Firebase
+      run: firebase deploy --only hosting --project the-fae-com
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
