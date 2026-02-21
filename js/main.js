@@ -96,15 +96,9 @@ function initWaitlistForm() {
       input.disabled = true;
 
       try {
-        // Write to Firestore (email as doc ID — duplicates just update timestamp)
-        const db = window._firebaseDb;
-        if (!db) throw new Error('Firestore not initialised');
-
-        await db.collection('waitlist').doc(email).set({
-          email: email,
-          timestamp: new Date().toISOString(),
-          source: window.location.pathname
-        }, { merge: true });
+        // Write to Firestore via REST API
+        if (!window._firestoreWrite) throw new Error('Firestore not initialised');
+        await window._firestoreWrite(email, window.location.pathname);
 
         // Success state
         btn.textContent = 'You\'re on the list';

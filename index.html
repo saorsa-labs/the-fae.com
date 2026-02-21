@@ -419,19 +419,27 @@
     </div>
   </footer>
 
-  <!-- Firebase SDK (waitlist) -->
-  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+  <!-- Firestore waitlist (REST API) -->
   <script>
-    firebase.initializeApp({
-      apiKey: "AIzaSyBILVtyt9nMaTZSGjznpeQ9_rCs1Cya7_I",
-      authDomain: "the-fae-com.firebaseapp.com",
-      projectId: "the-fae-com",
-      storageBucket: "the-fae-com.firebasestorage.app",
-      messagingSenderId: "474993899668",
-      appId: "1:474993899668:web:ec44959cbf1f36c87c5c81"
-    });
-    window._firebaseDb = firebase.firestore();
+    window._firestoreWrite = async function(email, source) {
+      var url = 'https://firestore.googleapis.com/v1/projects/the-fae-com/databases/(default)/documents/waitlist?documentId=' + encodeURIComponent(email) + '&key=AIzaSyBILVtyt9nMaTZSGjznpeQ9_rCs1Cya7_I';
+      var resp = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fields: {
+            email: { stringValue: email },
+            timestamp: { stringValue: new Date().toISOString() },
+            source: { stringValue: source || '/' }
+          }
+        })
+      });
+      if (!resp.ok) {
+        var errText = await resp.text();
+        throw new Error('Firestore ' + resp.status + ': ' + errText);
+      }
+      return resp.json();
+    };
   </script>
 
   <!-- Scripts -->
