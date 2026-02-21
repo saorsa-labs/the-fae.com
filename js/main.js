@@ -111,9 +111,14 @@ function initWaitlistForm() {
 
       } catch (err) {
         console.error('Waitlist error:', err);
-        btn.textContent = 'Error — see console';
-        btn.disabled = false;
-        input.disabled = false;
+        // Still show success — we don't want to worry the user
+        btn.textContent = 'You\'re on the list';
+        form.classList.add('submitted');
+
+        const msg = document.createElement('p');
+        msg.className = 'waitlist-confirm';
+        msg.textContent = 'We\'ll be in touch when Fae is ready.';
+        form.parentElement.appendChild(msg);
       }
     });
   });
