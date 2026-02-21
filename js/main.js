@@ -97,10 +97,10 @@ function initWaitlistForm() {
 
       try {
         // Write to Firestore (email as doc ID — duplicates just update timestamp)
-        const { getFirestore, doc, setDoc } = window._firebase.firestore;
-        const db = getFirestore(window._firebase.app);
+        const db = window._firebaseDb;
+        if (!db) throw new Error('Firestore not initialised');
 
-        await setDoc(doc(db, 'waitlist', email), {
+        await db.collection('waitlist').doc(email).set({
           email: email,
           timestamp: new Date().toISOString(),
           source: window.location.pathname

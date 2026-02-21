@@ -420,21 +420,18 @@
   </footer>
 
   <!-- Firebase SDK (waitlist) -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
-
-    const firebaseConfig = {
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script>
+    firebase.initializeApp({
       apiKey: "AIzaSyBILVtyt9nMaTZSGjznpeQ9_rCs1Cya7_I",
       authDomain: "the-fae-com.firebaseapp.com",
       projectId: "the-fae-com",
       storageBucket: "the-fae-com.firebasestorage.app",
       messagingSenderId: "474993899668",
       appId: "1:474993899668:web:ec44959cbf1f36c87c5c81"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    window._firebase = { app, firestore: { getFirestore, doc, setDoc } };
+    });
+    window._firebaseDb = firebase.firestore();
   </script>
 
   <!-- Scripts -->
