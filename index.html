@@ -419,6 +419,24 @@
     </div>
   </footer>
 
+  <!-- Firebase SDK (waitlist) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBILVtyt9nMaTZSGjznpeQ9_rCs1Cya7_I",
+      authDomain: "the-fae-com.firebaseapp.com",
+      projectId: "the-fae-com",
+      storageBucket: "the-fae-com.firebasestorage.app",
+      messagingSenderId: "474993899668",
+      appId: "1:474993899668:web:ec44959cbf1f36c87c5c81"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    window._firebase = { app, firestore: { getFirestore, doc, setDoc } };
+  </script>
+
   <!-- Scripts -->
   <script src="js/orb.js"></script>
   <script src="js/main.js"></script>

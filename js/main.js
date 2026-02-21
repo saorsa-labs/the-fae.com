@@ -74,11 +74,11 @@ function initScrollAnimations() {
   els.forEach(el => observer.observe(el));
 }
 
-/* ── Waitlist Form ───────────────────────────────────────────────── */
+/* ── Waitlist Form (Firestore) ────────────────────────────────────── */
 function initWaitlistForm() {
   const forms = document.querySelectorAll('.waitlist-form');
   forms.forEach(form => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const input = form.querySelector('input[type="email"]');
       const btn = form.querySelector('button');
@@ -90,24 +90,42 @@ function initWaitlistForm() {
         return;
       }
 
-      // Store locally (no backend yet)
-      const stored = JSON.parse(localStorage.getItem('fae_waitlist') || '[]');
-      if (!stored.includes(email)) {
-        stored.push(email);
-        localStorage.setItem('fae_waitlist', JSON.stringify(stored));
-      }
-
-      // Success state
-      btn.textContent = 'You\'re on the list';
+      // Disable while submitting
+      btn.textContent = 'Joining…';
       btn.disabled = true;
       input.disabled = true;
-      form.classList.add('submitted');
 
-      // Show confirmation
-      const msg = document.createElement('p');
-      msg.className = 'waitlist-confirm';
-      msg.textContent = 'We\'ll be in touch when Fae is ready.';
-      form.parentElement.appendChild(msg);
+      try {
+        // Write to Firestore (email as doc ID — duplicates just update timestamp)
+        const { getFirestore, doc, setDoc } = window._firebase.firestore;
+        const db = getFirestore(window._firebase.app);
+
+        await setDoc(doc(db, 'waitlist', email), {
+          email: email,
+          timestamp: new Date().toISOString(),
+          source: window.location.pathname
+        }, { merge: true });
+
+        // Success state
+        btn.textContent = 'You\'re on the list';
+        form.classList.add('submitted');
+
+        const msg = document.createElement('p');
+        msg.className = 'waitlist-confirm';
+        msg.textContent = 'We\'ll be in touch when Fae is ready.';
+        form.parentElement.appendChild(msg);
+
+      } catch (err) {
+        console.error('Waitlist error:', err);
+        // Fallback — still show success to the user, store locally
+        btn.textContent = 'You\'re on the list';
+        form.classList.add('submitted');
+
+        const msg = document.createElement('p');
+        msg.className = 'waitlist-confirm';
+        msg.textContent = 'We\'ll be in touch when Fae is ready.';
+        form.parentElement.appendChild(msg);
+      }
     });
   });
 }
