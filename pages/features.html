@@ -243,7 +243,7 @@
 
   <div class="divider container"></div>
 
-  <!-- Feature 6: Skills & Scheduler -->
+  <!-- Feature 6: Self-Improving Skills -->
   <section class="section--sm">
     <div class="container">
       <div class="feature-detail" data-animate>
@@ -252,29 +252,103 @@
         </div>
         <div class="feature-detail__content">
           <h4>Growth</h4>
-          <h3>Skills that grow with you</h3>
+          <h3>An AI that gets better for you</h3>
           <p>
-            Fae's capabilities expand over time through skills — markdown guides that teach her new workflows. Built-in skills cover common tasks, and Fae can propose new skills when she detects patterns in your conversations. You always review and approve before anything is installed.
+            Fae doesn't wait for a software update to learn new tricks. When she detects patterns in how you work — tasks you repeat, workflows you describe, problems you keep solving — she can generate entirely new skills herself. Python packages, markdown guides, tool integrations — built to fit your life, not a generic template.
           </p>
           <p>
-            The built-in scheduler runs reminders, recurring check-ins, memory maintenance, and update checks in the background. Set tasks through natural conversation — "remind me every morning to review my tasks" — and manage them through voice or the GUI menu.
+            Every self-authored skill goes through a rigorous promotion pipeline before it touches your live environment: staging first, then structural validation, then a bounded canary run, then promotion to active use. If a skill causes repeated failures, it's automatically quarantined and rolled back to the last known-good version. You stay in control — Fae proposes, you approve.
+          </p>
+          <p>
+            The built-in scheduler handles reminders, recurring check-ins, memory maintenance, and background research. Set tasks through natural conversation — "remind me every morning to review my tasks" — and manage them through voice or the settings menu.
           </p>
           <ul class="feature-checks">
             <li>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              User-approved skill installation
+              Self-authored Python skills generated from your needs
             </li>
             <li>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Pattern detection for skill proposals
+              Promotion pipeline: stage &rarr; validate &rarr; canary &rarr; live
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Auto-quarantine and rollback on failure
             </li>
             <li>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               Built-in scheduler with natural language triggers
             </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container"></div>
+
+  <!-- Feature 6b: Security Architecture -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="feature-detail" data-animate>
+        <div class="feature-detail__visual">
+          <svg class="feature-detail__visual-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="feature-detail__content">
+          <h4>Security</h4>
+          <h3>Self-improving, with a safety net</h3>
+          <p>
+            An AI that can modify its own behaviour needs an architecture that prevents self-destruction. Fae uses a four-layer security model that separates what she can change from what must stay protected — giving her the freedom to grow while guaranteeing she can always recover.
+          </p>
+
+          <div style="margin: var(--space-xl) 0;">
+            <div style="display:grid; grid-template-columns: auto 1fr; gap: var(--space-sm) var(--space-md); align-items: start;">
+              <div style="background: var(--green-dim); color: var(--green); padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; white-space: nowrap;">Layer 1</div>
+              <div>
+                <strong style="color: var(--text-primary);">Protected Kernel</strong>
+                <span style="color: var(--text-secondary);"> — Immutable safety core. Permissions, credentials, memory integrity, boot sequence, and scheduler authority. Fae cannot modify this layer, even if she tries. Human-reviewed only.</span>
+              </div>
+
+              <div style="background: var(--blue-dim, rgba(96, 165, 250, 0.1)); color: var(--blue, #60a5fa); padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; white-space: nowrap;">Layer 2</div>
+              <div>
+                <strong style="color: var(--text-primary);">Guarded Shared Layer</strong>
+                <span style="color: var(--text-secondary);"> — Extensible Rust mechanisms with strict policy gates. The LLM engine, skill runtime, and UI components. Fae can extend these through approved interfaces, but not rewrite the gates themselves.</span>
+              </div>
+
+              <div style="background: rgba(251, 191, 36, 0.1); color: var(--warm-gold); padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; white-space: nowrap;">Layer 3</div>
+              <div>
+                <strong style="color: var(--text-primary);">Self-Authored Layer</strong>
+                <span style="color: var(--text-secondary);"> — Skills, personality prompts, themes, and integrations. This is where Fae's self-improvement lives. She can create, modify, and retire content here freely — it's designed for evolution.</span>
+              </div>
+
+              <div style="background: rgba(156, 163, 175, 0.1); color: var(--text-muted); padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; white-space: nowrap;">Layer 4</div>
+              <div>
+                <strong style="color: var(--text-primary);">Ephemeral Runtime</strong>
+                <span style="color: var(--text-secondary);"> — Logs, temporary artifacts, and queue state. Disposable by design — nothing here persists beyond its immediate purpose.</span>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            If self-authored skills cause problems, Fae's built-in <strong style="color: var(--warm-gold);">Doctor</strong> can diagnose, quarantine, and roll back — automatically. Doctor runs in Rescue Mode: a minimal, always-available local runtime that uses a dedicated rescue model with constrained tools. It can't be disabled by mutable layers, and it doesn't need the cloud.
+          </p>
+
+          <ul class="feature-checks">
             <li>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Discord, WhatsApp, and webhook channels
+              Immutable safety core that Fae cannot modify
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Built-in Doctor with automatic diagnosis and rollback
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Local-only rescue model — no cloud dependency for recovery
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Open source — verify every layer yourself
             </li>
           </ul>
         </div>

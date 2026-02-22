@@ -197,7 +197,17 @@
           </div>
           <h3 class="card__title">Private by Design</h3>
           <p class="card__text">
-            Every word, every memory, every piece of data stays on your machine. No cloud. No telemetry. No data collection. Fae runs entirely on local AI models with no network required.
+            A four-layer security architecture keeps your data safe. An immutable safety core protects permissions, secrets, and memory — even from Fae herself. Everything stays on your machine. No cloud. No telemetry.
+          </p>
+        </div>
+        <!-- Feature 7 -->
+        <div class="card" data-animate data-animate-delay="0">
+          <div class="card__icon" style="background: var(--green-dim); color: var(--green);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="card__title">Self-Improving</h3>
+          <p class="card__text">
+            Fae can build new skills based on what you actually need — then test, validate, and install them herself. If anything goes wrong, her built-in Doctor diagnoses and rolls back automatically.
           </p>
         </div>
       </div>
@@ -219,11 +229,11 @@
         <div class="arch-text" data-animate>
           <h4>Under the Hood</h4>
           <h2 style="margin: var(--space-md) 0 var(--space-lg);">
-            Rust core, native shell,<br>
-            <span class="text-accent">zero compromise</span>
+            Pure native. No web views.<br>
+            <span class="text-accent">No compromise.</span>
           </h2>
           <p class="lead">
-            Fae is built as a Rust core library with platform-specific native shells. On macOS, she ships as a native app with SwiftUI. On Linux and Windows, a headless bridge exposes the same core via JSON protocol — connect any frontend you like.
+            Fae's intelligence runs on a Rust core library, and on macOS the entire interface is pure SwiftUI with a Metal-powered orb — no Electron, no embedded browsers, no web views. On Linux and Windows, a headless bridge exposes the same core via JSON protocol. It feels like it belongs on your machine because it does.
           </p>
 
           <div class="arch-pipeline" data-animate data-animate-delay="200">
@@ -256,8 +266,8 @@
             <div class="arch-stat__label">Cloud Dependencies</div>
           </div>
           <div class="arch-stat">
-            <div class="arch-stat__value text-gradient">3</div>
-            <div class="arch-stat__label">Platforms Supported</div>
+            <div class="arch-stat__value text-gradient" style="font-size: 1.5rem;">Native</div>
+            <div class="arch-stat__label">SwiftUI + Metal</div>
           </div>
           <div class="arch-stat">
             <div class="arch-stat__value text-gradient">AGPL</div>
