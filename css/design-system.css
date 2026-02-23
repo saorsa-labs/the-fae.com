@@ -280,8 +280,8 @@ p {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: radial-gradient(circle at 40% 40%, var(--warm-gold), var(--warm-rose), var(--autumn-bracken));
-  box-shadow: 0 0 16px var(--accent-glow);
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px var(--accent-glow));
 }
 
 .nav__links {
