@@ -59,25 +59,49 @@ function rgbaStr(rgb, a) {
   return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${a})`;
 }
 
-/* ── Amber Palette — like real glowing amber stone ────────────── */
+/* ── Palette ─────────────────────────────────────────────────────  */
 const PALETTE = {
-  hotAmber:      hexToRgb('#F0A830'),
-  brightHoney:   hexToRgb('#E8B840'),
-  goldenCore:    hexToRgb('#FFD068'),
-  richAmber:     hexToRgb('#C47A20'),
-  deepHoney:     hexToRgb('#B06818'),
-  burntGold:     hexToRgb('#D49138'),
-  darkAmber:     hexToRgb('#7A4010'),
-  deepResin:     hexToRgb('#5C2E08'),
-  shadowAmber:   hexToRgb('#3A1A04'),
+  // Warm ambers (home base)
+  hotAmber:    hexToRgb('#F0A830'),
+  brightHoney: hexToRgb('#E8B840'),
+  goldenCore:  hexToRgb('#FFD068'),
+  richAmber:   hexToRgb('#C47A20'),
+  deepHoney:   hexToRgb('#B06818'),
+  burntGold:   hexToRgb('#D49138'),
+  darkAmber:   hexToRgb('#7A4010'),
+  deepResin:   hexToRgb('#5C2E08'),
+  shadowAmber: hexToRgb('#3A1A04'),
+  // Curious — lighter, warmer gold
+  paleGold:    hexToRgb('#F5C84C'),
+  sunGlow:     hexToRgb('#FADA70'),
+  softGold:    hexToRgb('#D4A520'),
+  // Focused — deeper, tighter copper
+  deepCopper:  hexToRgb('#B8621A'),
+  darkCopper:  hexToRgb('#8B4513'),
+  bronzeCore:  hexToRgb('#A0522D'),
+  // Joyful — bright warm peach/apricot
+  peachGlow:   hexToRgb('#FFB366'),
+  apricot:     hexToRgb('#FF9944'),
+  warmCoral:   hexToRgb('#E87830'),
+  // Concerned — muted, cooler amber
+  dustyAmber:  hexToRgb('#B89060'),
+  mutedGold:   hexToRgb('#A08050'),
+  fadedResin:  hexToRgb('#6B5030'),
+  // Excited — vivid bright flame
+  flameOrange: hexToRgb('#FF8C1A'),
+  brightFlame: hexToRgb('#FFB030'),
+  deepFlame:   hexToRgb('#CC6600'),
 };
 
-/* ── States ───────────────────────────────────────────────────── */
-const FEELINGS = {
-  amber1:    { label: 'Idle',    colors: ['hotAmber', 'richAmber', 'darkAmber'],     speed: 0.6, amplitude: 1.4 },
-  amber2:    { label: 'Idle',    colors: ['brightHoney', 'deepHoney', 'deepResin'],  speed: 0.6, amplitude: 1.4 },
-  amber3:    { label: 'Idle',    colors: ['goldenCore', 'burntGold', 'shadowAmber'], speed: 0.6, amplitude: 1.4 },
-  working:   { label: 'Working', colors: ['hotAmber', 'burntGold', 'shadowAmber'],   speed: 2.0, amplitude: 2.4 },
+/* ── Moods — each has colours, speed, amplitude and a size scale ─ */
+const MOODS = {
+  calm:     { colors: ['hotAmber',    'richAmber',   'darkAmber'],    speed: 0.5, amplitude: 1.3, size: 1.0   },
+  curious:  { colors: ['paleGold',    'softGold',    'deepHoney'],    speed: 0.8, amplitude: 1.5, size: 1.08  },
+  focused:  { colors: ['deepCopper',  'darkCopper',  'bronzeCore'],   speed: 1.2, amplitude: 1.1, size: 0.88  },
+  joyful:   { colors: ['peachGlow',   'apricot',     'warmCoral'],    speed: 1.0, amplitude: 1.6, size: 1.12  },
+  concerned:{ colors: ['dustyAmber',  'mutedGold',   'fadedResin'],   speed: 0.4, amplitude: 1.0, size: 0.92  },
+  excited:  { colors: ['flameOrange', 'brightFlame', 'deepFlame'],    speed: 1.8, amplitude: 2.2, size: 1.18  },
+  working:  { colors: ['hotAmber',    'burntGold',   'shadowAmber'],  speed: 2.0, amplitude: 2.4, size: 1.0   },
 };
 
 /* ── Orb Animation ─────────────────────────────────────────────── */
@@ -88,22 +112,32 @@ class FaeOrb {
     this.noise = new SimplexNoise(42);
     this.time = 0;
     this.dpr = Math.min(window.devicePixelRatio || 1, 2);
-    this.feeling = 'amber1';
-    this.feelingTransition = 0;
-    this.targetFeeling = 'amber1';
-    this.prevFeeling = 'amber1';
+
+    // Current interpolated values
+    this.currentColors = MOODS.calm.colors.map(c => PALETTE[c]);
+    this.currentSpeed = MOODS.calm.speed;
+    this.currentAmp = MOODS.calm.amplitude;
+    this.currentSize = MOODS.calm.size;
+
+    // Transition
+    this.mood = 'calm';
+    this.targetMood = 'calm';
+    this.prevMood = 'calm';
+    this.moodTransition = 0;
+
+    // Demo cycle through all moods
+    this.moodCycle = ['calm', 'curious', 'focused', 'joyful', 'concerned', 'excited', 'working', 'calm'];
+    this.moodIndex = 0;
+    this.moodTimer = 0;
+    this.moodInterval = 6000;
+
     this.particles = [];
     this.mouseX = 0.5;
     this.mouseY = 0.5;
     this.breathPhase = 0;
-
-    this.feelingCycle = ['amber1', 'working'];
-    this.feelingIndex = 0;
-    this.feelingTimer = 0;
-    this.feelingInterval = 10000;
-
     this.flares = [];
     this.flareTimer = 0;
+
     this._initParticles();
     this._resize();
     this._bindEvents();
@@ -135,7 +169,7 @@ class FaeOrb {
     this.size = size;
     this.cx = size / 2;
     this.cy = size / 2;
-    this.orbRadius = size * 0.3;
+    this.baseOrbRadius = size * 0.3;
   }
 
   _bindEvents() {
@@ -151,10 +185,16 @@ class FaeOrb {
     });
   }
 
+  _lerpMoodValue(prop) {
+    const c = MOODS[this.mood][prop];
+    const t = MOODS[this.targetMood][prop];
+    return c + (t - c) * this.moodTransition;
+  }
+
   _getColors() {
-    const current = FEELINGS[this.feeling];
-    const target = FEELINGS[this.targetFeeling];
-    const t = this.feelingTransition;
+    const current = MOODS[this.mood];
+    const target = MOODS[this.targetMood];
+    const t = this.moodTransition;
     return current.colors.map((cName, i) => {
       const cColor = PALETTE[cName];
       const tColor = PALETTE[target.colors[i]] || cColor;
@@ -162,23 +202,17 @@ class FaeOrb {
     });
   }
 
-  _getSpeed() {
-    const c = FEELINGS[this.feeling].speed;
-    const t = FEELINGS[this.targetFeeling].speed;
-    return c + (t - c) * this.feelingTransition;
-  }
-
-  _getAmplitude() {
-    const c = FEELINGS[this.feeling].amplitude;
-    const t = FEELINGS[this.targetFeeling].amplitude;
-    return c + (t - c) * this.feelingTransition;
-  }
+  _getSpeed()     { return this._lerpMoodValue('speed'); }
+  _getAmplitude() { return this._lerpMoodValue('amplitude'); }
+  _getSize()      { return this._lerpMoodValue('size'); }
 
   _drawOrb(dt) {
     const ctx = this.ctx;
     const colors = this._getColors();
     const speed = this._getSpeed();
     const amp = this._getAmplitude();
+    const sizeScale = this._getSize();
+    const orbRadius = this.baseOrbRadius * sizeScale;
 
     this.breathPhase += dt * 0.001 * speed * (0.8 + amp * 0.5);
     const breathDepth = 0.015 + amp * 0.02;
@@ -190,7 +224,7 @@ class FaeOrb {
     const layers = 10;
     for (let l = 0; l < layers; l++) {
       const layerT = l / layers;
-      const layerRadius = this.orbRadius * (0.15 + layerT * 0.85) * breathScale;
+      const layerRadius = orbRadius * (0.15 + layerT * 0.85) * breathScale;
       const noiseScale = 1.0 + layerT * 0.7;
       const noiseAmp = (40 + layerT * 65) * amp;
       const alpha = 0.08 + layerT * 0.14;
@@ -237,18 +271,18 @@ class FaeOrb {
 
     // Bright light point
     const bpAngle = this.time * 0.15 + Math.sin(this.time * 0.23) * 0.8;
-    const bpR = this.orbRadius * (0.2 + Math.sin(this.time * 0.18) * 0.12);
+    const bpR = orbRadius * (0.2 + Math.sin(this.time * 0.18) * 0.12);
     const bpX = this.cx + Math.cos(bpAngle) * bpR;
     const bpY = this.cy + Math.sin(bpAngle) * bpR;
 
-    const bpWide = ctx.createRadialGradient(bpX, bpY, 0, bpX, bpY, this.orbRadius * 0.12);
+    const bpWide = ctx.createRadialGradient(bpX, bpY, 0, bpX, bpY, orbRadius * 0.12);
     bpWide.addColorStop(0, 'rgba(255, 240, 200, 0.25)');
     bpWide.addColorStop(0.2, 'rgba(245, 220, 160, 0.12)');
     bpWide.addColorStop(0.5, 'rgba(230, 190, 120, 0.04)');
     bpWide.addColorStop(1, 'rgba(220, 170, 100, 0)');
     ctx.fillStyle = bpWide;
     ctx.beginPath();
-    ctx.arc(bpX, bpY, this.orbRadius * 0.08, 0, Math.PI * 2);
+    ctx.arc(bpX, bpY, orbRadius * 0.08, 0, Math.PI * 2);
     ctx.fill();
 
     const bpCore = ctx.createRadialGradient(bpX, bpY, 0, bpX, bpY, 1.5);
@@ -286,23 +320,23 @@ class FaeOrb {
     const ctx = this.ctx;
     const colors = this._getColors();
     const speed = this._getSpeed();
+    const sizeScale = this._getSize();
+    const orbRadius = this.baseOrbRadius * sizeScale;
 
     this.flareTimer += dt;
     const spawnChance = speed > 1.0 ? 0.018 : 0.005;
     if (this.flareTimer > 300 && Math.random() < spawnChance) {
       this.flareTimer = 0;
       const baseAngle = Math.random() * Math.PI * 2;
-      const reach = this.orbRadius * (0.3 + Math.random() * 0.55);
+      const reach = orbRadius * (0.3 + Math.random() * 0.55);
       const curve = (Math.random() - 0.5) * 0.3;
       const noiseSeed = Math.random() * 100;
       this.flares.push({
-        angle: baseAngle,
-        reach: reach,
-        curve: curve,
+        angle: baseAngle, reach, curve,
         life: 1.0,
         decay: 0.15 + Math.random() * 0.2,
         baseWidth: 6 + Math.random() * 8,
-        noiseSeed: noiseSeed,
+        noiseSeed,
         colorIdx: Math.floor(Math.random() * colors.length),
       });
     }
@@ -315,13 +349,11 @@ class FaeOrb {
       const alpha = f.life * f.life * f.life;
       const color = colors[0];
       const flareColor = lerpColor(color, colors[1], 0.2);
-
-      const startR = this.orbRadius * 0.1;
+      const startR = orbRadius * 0.1;
       const endR = startR + f.reach * f.life;
       const segments = 20;
       const perpDir = f.angle + Math.PI * 0.5;
-      const leftPts = [];
-      const rightPts = [];
+      const leftPts = [], rightPts = [];
 
       for (let s = 0; s <= segments; s++) {
         const t = s / segments;
@@ -332,14 +364,8 @@ class FaeOrb {
         const taper = (1 - t * t) * f.baseWidth * alpha;
         const wNoise = this.noise.noise2D(t * 3 + f.noiseSeed, this.time * 0.3) * taper * 0.4;
         const halfW = Math.max(0.5, (taper + wNoise) * 0.5);
-        leftPts.push({
-          x: cx2 + Math.cos(perpDir) * halfW,
-          y: cy2 + Math.sin(perpDir) * halfW
-        });
-        rightPts.push({
-          x: cx2 - Math.cos(perpDir) * halfW,
-          y: cy2 - Math.sin(perpDir) * halfW
-        });
+        leftPts.push({ x: cx2 + Math.cos(perpDir) * halfW, y: cy2 + Math.sin(perpDir) * halfW });
+        rightPts.push({ x: cx2 - Math.cos(perpDir) * halfW, y: cy2 - Math.sin(perpDir) * halfW });
       }
 
       ctx.beginPath();
@@ -369,20 +395,20 @@ class FaeOrb {
     }
   }
 
-  _updateFeelingCycle(dt) {
-    this.feelingTimer += dt;
-    if (this.feelingTimer >= this.feelingInterval) {
-      this.feelingTimer = 0;
-      this.feelingIndex = (this.feelingIndex + 1) % this.feelingCycle.length;
-      this.prevFeeling = this.feeling;
-      this.targetFeeling = this.feelingCycle[this.feelingIndex];
-      this.feelingTransition = 0;
+  _updateMoodCycle(dt) {
+    this.moodTimer += dt;
+    if (this.moodTimer >= this.moodInterval) {
+      this.moodTimer = 0;
+      this.moodIndex = (this.moodIndex + 1) % this.moodCycle.length;
+      this.prevMood = this.mood;
+      this.targetMood = this.moodCycle[this.moodIndex];
+      this.moodTransition = 0;
     }
-    if (this.feeling !== this.targetFeeling) {
-      this.feelingTransition += dt * 0.003;
-      if (this.feelingTransition >= 1) {
-        this.feelingTransition = 0;
-        this.feeling = this.targetFeeling;
+    if (this.mood !== this.targetMood) {
+      this.moodTransition += dt * 0.002;
+      if (this.moodTransition >= 1) {
+        this.moodTransition = 0;
+        this.mood = this.targetMood;
       }
     }
   }
@@ -392,16 +418,16 @@ class FaeOrb {
     const dt = Math.min((now || 0) - this._lastFrame, 50);
     this._lastFrame = now || 0;
     this.time += dt * 0.001;
-    this._updateFeelingCycle(dt);
+    this._updateMoodCycle(dt);
 
     const ctx = this.ctx;
     ctx.clearRect(0, 0, this.size, this.size);
 
-    // Outer glow — warm amber halo (night-mode values for dark website bg)
+    // Outer glow (night-mode values for dark site background)
     const colors = this._getColors();
     const outerGlow = ctx.createRadialGradient(
-      this.cx, this.cy, this.orbRadius * 0.6,
-      this.cx, this.cy, this.orbRadius * 1.8
+      this.cx, this.cy, this.baseOrbRadius * 0.6,
+      this.cx, this.cy, this.baseOrbRadius * 1.8
     );
     outerGlow.addColorStop(0, rgbaStr(colors[0], 0.35));
     outerGlow.addColorStop(0.3, rgbaStr(colors[1], 0.18));
@@ -418,5 +444,5 @@ class FaeOrb {
   }
 }
 
-/* ── Export ────────────────────────────────────────────────────── */
+/* ── Init ──────────────────────────────────────────────────────── */
 window.FaeOrb = FaeOrb;
